@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Images.css";
 
-const Images = () => {
+const PhotoGallery = () => {
   const [imagesList, setImagesList] = useState([]);
 
   useEffect(() => {
@@ -13,12 +13,16 @@ const Images = () => {
       console.log(data.photos.photo);
       setImagesList(data.photos.photo);
     };
-    task();
+    task()
   }, []);
+let myCurrentDate = new Date()
+let date = myCurrentDate.getDate();
+let month = myCurrentDate.getMonth() + 1;
+let year = myCurrentDate.getFullYear();
 
   return (
     <div className="app-container">
-      <h1 className="heading">Images</h1>
+      
       <div className="images-container">
         {imagesList.map((each, i) => {
           return (
@@ -28,7 +32,10 @@ const Images = () => {
                 className="image"
                 alt="shopping-images"
               />
-              <p className="title">{each.title}</p>
+              <div >
+              <p className="title">{each.title} </p>
+              <p className="date">{date}/{month<10?`0${month}`:`${month}`}/{year}</p>
+              </div>
             </div>
           );
         })}
@@ -37,4 +44,4 @@ const Images = () => {
   );
 };
 
-export default Images;
+export default PhotoGallery;
