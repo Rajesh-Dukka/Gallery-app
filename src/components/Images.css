@@ -116,3 +116,10 @@
         font-size: 18px;
 }
 }
+
+.modalImage{
+    width:100%;
+    height: 50vh;
+    object-fit: fill;
+    border-radius: 16px;
+}
